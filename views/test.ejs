@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"  "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Untitled Document</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="Content-Script-Type" content="text/javascript">
+<script type="text/javascript">
+function showRows(s){
+var t=s.options[s.selectedIndex].text;
+var rows=document.getElementById('mytab').getElementsByTagName('tr'), i=0, r, c;
+while(r=rows[i++]){
+	if(t=='All'){r.style.display=''}
+	else{
+	c=r.getElementsByTagName('td')[3].firstChild.nodeValue;
+	r.style.display=c==t?'':'none';
+	}
+}
+}
+</script>
+</head>
+<body>
+<table align ="center" border="1"  width="50%" cellspacing="0" cellpadding="4">
+<tr>
+<td>
+<select name="mylist" onchange="showRows(this)">
+<option value="m1">All</option>
+<option value="m2">No Owner Assigned</option>
+<option value="m3">Active</option>
+<option value="m4">InActive</option>
+</select>
+</td>
+</tr>
+</table>
+<br>
+<table id="mytab" align="center" border="1" width="50%" cellspacing="0" cellpadding="4">
+<tr class="tabletitle">
+<td class="tabletitle">ID</td>
+<td class="tabletitle">First Name</td>
+<td class="tabletitle">Last Name</td>
+<td class="tabletitle">Status</td>
+</tr>
+<tr class="light" id=>
+<td class="white">0001</td>
+<td class="white">Chris</td>
+<td class="white">kay</td>
+<td class="white">No Owner Assigned</td>
+</tr>
+<tr class="light">
+<td class="white">0002</td>
+<td class="white">Sanjeev</td>
+<td class="white">Kumar</td>
+<td class="white">Active</td>
+</tr>
+<tr class="light">
+<td class="white">0003</td>
+<td class="white">John</td>
+<td class="white">Font</td>
+<td class="white">InActive</td>
+</tr>
+<tr class="light">
+<td class="white">0004</td>
+<td class="white">Ram</td>
+<td class="white">Kumar</td>
+<td class="white">InActive</td>
+</tr>
+<tr class="light">
+<td class="white">0005</td>
+<td class="white">Amit</td>
+<td class="white">Goel</td>
+<td class="white">Active</td>
+</tr>
+</table>
+</body>
+</html>
